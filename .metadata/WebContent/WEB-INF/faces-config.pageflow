@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14811269292460" configfile="/RuralHouseHibernate/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Deplegable.xhtml" x="108" y="180" id="pf14812242350977" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf148122428803812" inlinks="pf14812242350978" path="/Deplegable.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Seleccion.xhtml" x="384" y="456" id="pf14812242350979" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" outlinks="pf14812242350978 pf148122423509710 pf14820902530290 pf14820904202403" inlinks="pf148122428803813 pf148122428803812 pf14820902530291 pf14820904202404" path="/Seleccion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="SetAvalability.xhtml" x="36" y="420" id="pf148122423509711" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf148122428803813" inlinks="pf148122423509710" path="/SetAvalability.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="SetReserve.xhtml" x="336" y="84" id="pf14820902530292" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf14820902530291" inlinks="pf14820902530290" path="/SetReserve.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login.xhtml" x="636" y="149" id="pf14820904202405" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf14820904202404" inlinks="pf14820904202403" path="/Login.xhtml"/>
+  <links id="pf14812242350978" target="pf14812242350977" source="pf14812242350979" outcome="query"/>
+  <links id="pf148122423509710" target="pf148122423509711" source="pf14812242350979" outcome="set"/>
+  <links id="pf148122428803813" target="pf14812242350979" source="pf148122423509711" outcome="back"/>
+  <links id="pf148122428803812" target="pf14812242350979" source="pf14812242350977" outcome="back"/>
+  <links id="pf14820902530290" target="pf14820902530292" source="pf14812242350979" outcome="res"/>
+  <links id="pf14820902530291" target="pf14812242350979" source="pf14820902530292" outcome="back"/>
+  <links id="pf14820904202403" target="pf14820904202405" source="pf14812242350979" outcome="back"/>
+  <links id="pf14820904202404" target="pf14812242350979" source="pf14820904202405" outcome="log"/>
+</pageflow:Pageflow>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-dic-2016 19:32:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="principal.RuralHouse" table="RURALHOUSE">
+  <id name="houseNumber" type="java.lang.Integer">
+   <column name="HOUSENUMBER" sql-type="NUMBER"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="description" type="java.lang.String">
+   <column name="DESCRIPTION" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="city" type="java.lang.String">
+   <column name="CITY" sql-type="VARCHAR"/>
+  </property>
+  <list lazy="true" name="offers" table="OFFER">
+   <key>
+    <column name="HOUSENUMBER"/>
+   </key>
+   <list-index base="0"/>
+   <one-to-many class="principal.Offer"/>
+  </list>
+ </class>
+</hibernate-mapping>

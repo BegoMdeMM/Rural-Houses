@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<f:view>
+<h:head></h:head>
+<h:body>
+	<h1 class="ui-widget-header ui-corner-all" align="center">Set Availability</h1>
+
+	<h2>Rural Houses Code<br /><br /><h:outputText value="usuario"/> 
+	<h:inputText id="usuario" value="#{desplegable.usuario}"/> </h2>
+
+    <h:form>
+	<h:selectOneMenu value="#{setAvailability.selectedHouse}" converter="ruralHouseConverter">
+		<f:selectItem itemLabel="Choose item" noSelectionOption="true" />
+		<f:selectItems value="#{setAvailability.allRuralHouses}" var="house"  itemValue="#{house}" itemLabel="#{house.city}"/>
+	</h:selectOneMenu>
+	
+	<h:outputText value="precio"/> 
+	<h:inputText id="precio" value="#{setAvailability.precio}"/> 
+	
+	
+		<p:fieldset legend="Fecha Entrada">
+		
+		<h:panelGrid columns="2">
+		   <p:calendar value="#{setAvailability.entrada}" mode="inline">
+		      <p:ajax event="dateSelect" update="selection"/>
+		   </p:calendar>
+		   <h:outputText value="#{setAvailability.printEntrada}" id="selection"/>
+		</h:panelGrid>
+		</p:fieldset>
+		<p:fieldset legend="Fecha Salida">
+		<h:panelGrid columns="2">
+		   <p:calendar value="#{setAvailability.salida}" mode="inline">
+		      <p:ajax event="dateSelect" update="selection1"/>
+		   </p:calendar>
+		   <h:outputText value="#{setAvailability.printSalida}" id="selection1"/>
+		</h:panelGrid><br />
+		</p:fieldset>
+			<h:commandButton action="#{setAvailability.getAceptar}" value ="Aceptar"/>
+			<h:commandButton action="#{setAvailability.getCancelar}" value ="Cancelar"/>
+		</h:form>
+</h:body>
+</f:view>
+</html>

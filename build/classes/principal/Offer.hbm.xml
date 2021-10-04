@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-dic-2016 19:32:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="principal.Offer" table="OFFER">
+  <id name="offerNumber" type="java.lang.Integer">
+   <column name="OFFERNUMBER" sql-type="NUMBER"/>
+   <generator class="assigned"/>
+  </id>
+  <property access="field" generated="never" lazy="false"
+   name="idUsuario" type="java.lang.Integer">
+   <column name="IDUSUARIO" sql-type="NUMBER"/>
+  </property>
+  <property generated="never" lazy="false" name="firstDay" type="java.util.Date">
+   <column name="FIRSTDAY" sql-type="DATE"/>
+  </property>
+  <property generated="never" lazy="false" name="lastDay" type="java.util.Date">
+   <column name="LASTDAY" sql-type="DATE"/>
+  </property>
+  <property generated="never" lazy="false" name="price" type="float">
+   <column name="PRICE" sql-type="FLOAT"/>
+  </property>
+  <property generated="never" lazy="false" name="houseNumber" type="java.lang.Integer">
+   <column name="HOUSENUMBER" sql-type="NUMBER"/>
+  </property>
+  <many-to-one class="principal.RuralHouse" fetch="join" name="ruralHouse">
+   <column name="RURALHOUSE"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

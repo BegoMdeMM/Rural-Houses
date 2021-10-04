@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-dic-2016 19:32:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="principal.Client" table="CLIENT">
+        <id name="apellido1" type="java.lang.String" access="field">
+            <column name="APELLIDO1" />
+            <generator class="assigned" />
+        </id>
+        <property name="numClient" type="java.lang.Integer" access="field">
+            <column name="NUMCLIENT" />
+        </property>
+        <property name="nombre" type="java.lang.String" access="field">
+            <column name="NOMBRE" />
+        </property>
+        <property name="apellido2" type="java.lang.String" access="field">
+            <column name="APELLIDO2" />
+        </property>
+        <list name="res" inverse="false" table="RESERVE" lazy="true">
+            <key>
+                <column name="APELLIDO1" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="principal.Reserve" />
+        </list>
+    </class>
+</hibernate-mapping>

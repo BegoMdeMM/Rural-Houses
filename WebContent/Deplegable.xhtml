@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<f:view>
+<h:head></h:head>
+<h:body>
+<h1 class="ui-widget-header ui-corner-all" align="center">Query Availability</h1>
+
+	<h:form>
+	<h2>Rural Houses Code<br /><br /><h:outputText value="usuario"/> 
+	<h:inputText id="usuario" value="#{desplegable.usuario}"/> </h2>
+	<h:selectOneMenu value="#{desplegable.selectedHouse}" converter="ruralHouseConverterQuery">
+		<f:selectItem itemLabel="Choose item" noSelectionOption="true" />
+		<f:selectItems value="#{desplegable.allRuralHouses}" var="house" itemValue="#{house}" itemLabel="#{house.city}"/>
+	</h:selectOneMenu>
+		<p:fieldset legend="Fecha Entrada">
+		
+		<h:panelGrid columns="2">
+		   <p:calendar value="#{desplegable.entrada}" mode="inline">
+		      <p:ajax event="dateSelect" update="selection"/>
+		   </p:calendar>
+		   <h:outputText value="#{desplegable.printEntrada}" id="selection"/>
+		</h:panelGrid>
+		</p:fieldset>
+		<h:outputText value="noches"/> 
+		<h:inputText id="noches" value="#{desplegable.noches}"/> 
+		
+		<h:panelGroup id="dataTableGroup">
+		<h:dataTable id="offertable" value="#{desplegable.offers}" var="offer">
+			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header"><h:outputText value="#Offer"/></f:facet>
+    				<!-- row record -->
+    				<h:outputText value="#{offer.offerNumber}"/>
+    			</h:column>
+    		<h:column>
+    				<!-- column header -->
+    				<f:facet name="header"><h:outputText value="Rural House"/></f:facet>
+    				<!-- row record -->
+    				<h:outputText value="#{offer.ruralHouse.houseNumber}"/>
+    			</h:column>
+    		<h:column>
+    				<!-- column header -->
+    				<f:facet name="header"><h:outputText value="First Day"/></f:facet>
+    				<!-- row record -->
+    				<h:outputText value="#{offer.firstDay}"/>
+    			</h:column>
+    		<h:column>
+    				<!-- column header -->
+    				<f:facet name="header"><h:outputText value="Last Day"/></f:facet>
+    				<!-- row record -->
+    				<h:outputText value="#{offer.lastDay}"/>
+    			</h:column>
+    		<h:column>
+    				<!-- column header -->
+    				<f:facet name="header"><h:outputText value="Price"/></f:facet>
+    				<!-- row record -->
+    				<h:outputText value="#{offer.price}"/>
+    		</h:column>
+		</h:dataTable>
+		</h:panelGroup>
+		
+		<h:commandButton update="dataTableGroup" action="#{desplegable.getAceptar}" value ="Aceptar"/>
+		<h:commandButton action="#{desplegable.getCancelar}" value ="Cancelar"/>
+		</h:form>
+		
+</h:body>
+</f:view>
+</html>

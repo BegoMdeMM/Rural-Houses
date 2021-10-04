@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-dic-2016 19:32:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="principal.Reserve" table="RESERVE">
+        <id name="firstDay" type="java.util.Date">
+            <column name="FIRSTDAY" />
+            <generator class="assigned" />
+        </id>
+        <property name="lastDay" type="java.util.Date">
+            <column name="LASTDAY" />
+        </property>
+        <property name="price" type="int">
+            <column name="PRICE" />
+        </property>
+        <property name="numRH" type="java.lang.Integer">
+            <column name="NUMRH" />
+        </property>
+        <property name="numRes" type="java.lang.Integer">
+            <column name="NUMRES" />
+        </property>
+        <many-to-one name="ruralHouse" class="principal.RuralHouse" fetch="join">
+            <column name="RURALHOUSE" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

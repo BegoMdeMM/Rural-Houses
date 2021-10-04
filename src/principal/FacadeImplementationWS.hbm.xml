@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-dic-2016 19:32:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <subclass name="principal.FacadeImplementationWS" extends="principal.ApplicationFacadeInterfaceWS" discriminator-value="FacadeImplementationWS" lazy="false">
+        <many-to-one name="da" class="principal.DataAccess" access="field" fetch="join">
+            <column name="DA" />
+        </many-to-one>
+    </subclass>
+</hibernate-mapping>
